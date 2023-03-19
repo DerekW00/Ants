@@ -22,7 +22,7 @@ class Place(object):
         self.ant = None       # An Ant
         self.entrance = None  # A Place
         # Phase 1: Add an entrance to the exit
-        
+
         if exit!=None:
             exit.entrance=self
 
@@ -211,7 +211,7 @@ class HarvesterAnt(Ant):
         colony -- The AntColony, used to access game state information.
         """
         colony.food=colony.food+1
-        
+
 
 
 
@@ -244,11 +244,11 @@ class ThrowerAnt(Ant):
                     counter+=1
                 else: 
                     return random_or_none(change_place.bees)
-                
-        
+
+
         if change_place==hive:
             return None
-       
+
 
 
     def throw_at(self, target):
@@ -394,7 +394,7 @@ class BodyguardAnt(Ant):
 
         if self.contained_ant!=None:
             self.contained_ant.action(colony)
-            
+
 
 class TankAnt(BodyguardAnt):
     """TankAnt provides both offensive and defensive capabilities."""
@@ -441,7 +441,7 @@ class ScubaThrower(ThrowerAnt):
     implemented=True
 
 
-	
+
 
 class QueenAnt(ScubaThrower):
 
@@ -474,7 +474,7 @@ class QueenAnt(ScubaThrower):
         else:
             ScubaThrower.action(self,colony)
             current_place=self.place.exit 
-            
+
             while current_place!=None:
                 ant=current_place.ant
                 if ant and ant not in self.buffed:
@@ -510,7 +510,7 @@ class AntRemover(Ant):
         Ant.__init__(self, 0)
 
 
-	
+
 ##################
 # Status Effects #
 ##################
